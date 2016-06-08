@@ -28,6 +28,21 @@ var albumMarconi = {
   ]
 };
 
+var albumBeethoven = {
+  title: 'Sonata',
+  artist: 'Ludwig van Beethoven',
+  label: 'composer',
+  year: '1770 - 1827',
+  albumArtUrl: 'assets/images/album_covers/21.png',
+  songs: [
+    { title: 'Für Elise', duration: '2:56' },
+    { title: 'Piano sonatas', duration: '5:01' },
+    { title: 'Wellington\'s Victory', duration: '3:21' },
+    { title: 'Turkish March', duration: '3:14' },
+    { title: 'Moonlight Sonata', duration: '2:15' }
+  ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
   var template =
   '<tr class="album-view-song-item">'
@@ -60,4 +75,19 @@ var setCurrentAlbum = function(album) {
 
 window.onload = function() {
   setCurrentAlbum(albumPicasso);
+
+  var albumImage = document.getElementsByClassName('album-cover-art')[0];
+  albumImage.style.cursor = 'pointer';
+
+  var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+
+  albumImage.addEventListener('click', function() {
+    if(albumArtist.textContent === 'Pablo Picasso') {
+      setCurrentAlbum(albumMarconi);
+    } else if(albumArtist.textContent === 'Guglielmo Marconi') {
+      setCurrentAlbum(albumBeethoven);
+    } else if(albumArtist.textContent === 'Ludwig van Beethoven') {
+      setCurrentAlbum(albumPicasso);
+    }
+  });
 };
