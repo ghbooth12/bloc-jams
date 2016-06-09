@@ -68,18 +68,6 @@ var findParentByClassName = function(element, targetClass) {
   }
 };
 
-// // My 'findParentByClassName()' expession
-// var findParentByClassName = function(currentElement, searchClass) {
-//   var currentParent = currentElement.parentElement,
-//       arr = currentParent.className.split(' ');
-//
-//   while(!arr.includes(searchClass)) {
-//     currentParent = currentParent.parentElement;
-//     arr = currentParent.className.split(' ');
-//   }
-//   return currentParent;
-// };
-
 var getSongItem = function(element) {
   switch(element.className) {
     case 'album-song-button':
